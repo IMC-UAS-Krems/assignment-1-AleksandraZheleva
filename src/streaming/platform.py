@@ -7,7 +7,7 @@ and provides query methods for analytics.
 Classes to implement:
   - StreamingPlatform
 """
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from .albums import Album
 from .artists import Artist

@@ -26,7 +26,6 @@ class Track:
             f"genre={self.genre!r})"
         )
 
-
 class Song(Track):
     def __init__(
         self,
@@ -40,7 +39,6 @@ class Song(Track):
         self.artist = artist
         self.artist.add_track(self)
 
-
 class SingleRelease(Song):
     def __init__(
         self,
@@ -53,7 +51,6 @@ class SingleRelease(Song):
     ):
         super().__init__(track_id, title, duration_seconds, genre, artist)
         self.release_date = release_date
-
 
 class AlbumTrack(Song):
     def __init__(
@@ -70,7 +67,6 @@ class AlbumTrack(Song):
         self.track_number = track_number
         self.album = album
 
-
 class Podcast(Track):
     def __init__(
         self,
@@ -84,7 +80,6 @@ class Podcast(Track):
         super().__init__(track_id, title, duration_seconds, genre)
         self.host = host
         self.description = description
-
 
 class NarrativeEpisode(Podcast):
     def __init__(
@@ -102,7 +97,6 @@ class NarrativeEpisode(Podcast):
         self.season = season
         self.episode_number = episode_number
 
-
 class InterviewEpisode(Podcast):
     def __init__(
         self,
@@ -116,7 +110,6 @@ class InterviewEpisode(Podcast):
     ):
         super().__init__(track_id, title, duration_seconds, genre, host, description)
         self.guest = guest
-
 
 class AudiobookTrack(Track):
     def __init__(

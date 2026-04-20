@@ -42,16 +42,13 @@ class User:
             f"name={self.name!r}, age={self.age!r})"
         )
 
-
 class FreeUser(User):
     MAX_SKIPS_PER_HOUR = 6
-
 
 class PremiumUser(User):
     def __init__(self, user_id: str, name: str, age: int, subscription_start: date):
         super().__init__(user_id, name, age)
         self.subscription_start = subscription_start
-
 
 class FamilyAccountUser(User):
     def __init__(self, user_id: str, name: str, age: int, subscription_start: date):
@@ -66,7 +63,6 @@ class FamilyAccountUser(User):
 
     def all_members(self) -> list[User]:
         return [self] + self.sub_users
-
 
 class FamilyMember(User):
     def __init__(

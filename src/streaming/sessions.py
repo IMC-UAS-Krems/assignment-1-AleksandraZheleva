@@ -3,7 +3,6 @@ from datetime import datetime
 from .tracks import Track
 from .users import User
 
-
 class ListeningSession:
     def __init__(
         self,

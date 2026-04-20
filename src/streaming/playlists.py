@@ -10,7 +10,6 @@ Classes to implement:
 from .tracks import Track
 from .users import User
 
-
 class Playlist:
     def __init__(self, playlist_id: str, name: str, owner: User):
         self.playlist_id = playlist_id

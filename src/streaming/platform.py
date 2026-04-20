@@ -16,7 +16,6 @@ from .sessions import ListeningSession
 from .tracks import Track, Song
 from .users import User, PremiumUser, FamilyMember
 
-
 class StreamingPlatform:
     def __init__(self, name: str):
         self.name = name
@@ -64,7 +63,7 @@ class StreamingPlatform:
     def all_tracks(self):
         return list(self._catalogue.values())
 
-    # Q1
+#Q1
     def total_listening_time_minutes(self, start: datetime, end: datetime) -> float:
         total_seconds = 0
 
@@ -74,7 +73,7 @@ class StreamingPlatform:
 
         return total_seconds / 60.0
 
-    # Q2
+#Q2
     def avg_unique_tracks_per_premium_user(self, days: int = 30) -> float:
         premium_users = [
             user for user in self._users.values() if isinstance(user, PremiumUser)
@@ -102,7 +101,7 @@ class StreamingPlatform:
 
         return total_unique / len(premium_users)
 
-    # Q3
+#Q3
     def track_with_most_distinct_listeners(self) -> Track | None:
         if not self._sessions:
             return None
@@ -131,7 +130,7 @@ class StreamingPlatform:
 
         return self._catalogue.get(best_track_id)
 
-    # Q4
+#Q4
     def avg_session_duration_by_user_type(self) -> list[tuple[str, float]]:
         grouped: dict[str, list[int]] = {}
 
@@ -151,7 +150,7 @@ class StreamingPlatform:
         result.sort(key=lambda item: item[1], reverse=True)
         return result
 
-    # Q5
+#Q5
     def total_listening_time_underage_sub_users_minutes(self, age_threshold: int = 18) -> float:
         total_seconds = 0
 
@@ -161,7 +160,7 @@ class StreamingPlatform:
 
         return total_seconds / 60.0
 
-    # Q6
+#Q6
     def top_artists_by_listening_time(self, n: int = 5) -> list[tuple[Artist, float]]:
         artist_seconds: dict[Artist, int] = {}
 
@@ -180,7 +179,7 @@ class StreamingPlatform:
 
         return [(artist, seconds / 60.0) for artist, seconds in ranked[:n]]
 
-    # Q7
+#Q7
     def user_top_genre(self, user_id: str) -> tuple[str, float] | None:
         user = self.get_user(user_id)
 
@@ -210,7 +209,7 @@ class StreamingPlatform:
 
         return (top_genre, percentage)
 
-    # Q8
+#Q8
     def collaborative_playlists_with_many_artists(
         self, threshold: int = 3
     ) -> list[CollaborativePlaylist]:
@@ -229,7 +228,7 @@ class StreamingPlatform:
 
         return result
 
-    # Q9
+#Q9
     def avg_tracks_per_playlist_type(self) -> dict[str, float]:
         normal_playlists: list[Playlist] = []
         collaborative_playlists: list[CollaborativePlaylist] = []
@@ -257,7 +256,7 @@ class StreamingPlatform:
             "CollaborativePlaylist": collaborative_avg,
         }
 
-    # Q10
+#Q10
     def users_who_completed_albums(self) -> list[tuple[User, list[str]]]:
         result: list[tuple[User, list[str]]] = []
 
